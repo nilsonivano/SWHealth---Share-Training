@@ -22,7 +22,7 @@ Meteor.startup(function () {
     });
 });
 
-Template.indicaPsicoHome.onRendered(function () {
+Template.shareTrainingHome.onRendered(function () {
     $('.parallax').parallax();
     $('select').material_select();
     $('.datepicker').pickadate({
@@ -254,15 +254,4 @@ Template.indicaForm.events({
             });
         }
     }
-});
-
-Template.confirmSubmitForm.onRendered(function () {
-    window.google_trackConversion({
-        google_conversion_id: 972021336,
-        google_conversion_language: "en",
-        google_conversion_format: "3",
-        google_conversion_color: "ffffff",
-        google_conversion_label: "gkR8CKCSlGgQ2Ly_zwM",
-        google_remarketing_only: false
-    });
 });

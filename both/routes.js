@@ -1,11 +1,13 @@
 Router.route('/', {
-    name: 'indicaPsicoHome',
-    template: 'indicaPsicoHome'
+    name: 'shareTrainingHome',
+    layoutTemplate: 'appLayout',
+    template: 'shareTrainingHome'
 });
 
-Router.route('/confirmSubmitForm', {
-    name: 'confirmSubmitForm',
-    template: 'confirmSubmitForm'
+Router.route('/ptProfile', {
+    name: 'ptProfile',
+    layoutTemplate: 'appLayout',
+    template: 'ptProfile'
 });
 
 Router.route('/userLeads', {

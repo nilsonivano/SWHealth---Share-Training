@@ -1,3 +1,3 @@
 Meteor.startup(function() {
-    Kadira.connect('LSju8w3dkWoHyufya', 'fbfba865-98b4-4c97-a968-f69bdf2055d2');
+    Kadira.connect('r9uN2etDjJnMXsrDA', 'c1402807-e2ea-4eea-9343-29f69ffb3660');
 });

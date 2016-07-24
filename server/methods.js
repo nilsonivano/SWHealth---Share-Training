@@ -2,6 +2,12 @@ import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 
 Meteor.methods({
+    'userRegister': function(email,password) {
+        Accounts.createUser({
+            email: email,
+            password: password
+        });
+    },
     'insertRequestPsico': function(name, email, phone, address, addressGeocode, valores, atendimentoType, especializacaoType, abordagemType,
     haveConvenio, nomeConvenio, haveContatar, contatoList, periodoList){
         psicoRequest.insert({

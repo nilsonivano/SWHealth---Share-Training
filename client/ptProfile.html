@@ -1,0 +1,36 @@
+<template name="ptProfile">
+    {{#if currentUser}}
+    <div class="container">
+        <h4>Perfil do Personal Trainer</h4>
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="name" type="text" class="validate" value="{{user.profile.name}}">
+                <label class="active" for="name">Nome</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="cref" type="text" class="validate" value="{{user.profile.cref}}">
+                <label class="active" for="cref">CREF</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="email" type="text" class="validate" value="{{user.profile.contacts.email}}">
+                <label class="active" for="email">Email</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="phone" type="text" class="validate" value="{{user.profile.contacts.phone}}">
+                <label class="active" for="phone">Telefone</label>
+            </div>
+            <div class="input-field col s12">
+                <textarea id="description" class="materialize-textarea" value="{{user.profile.description}}"></textarea>
+                <label class="active" for="description">Descrição do Profissional</label>
+            </div>
+            <div class="input-field col s12">
+                <textarea id="miniCV" class="materialize-textarea" value="{{user.profile.miniCV}}"></textarea>
+                <label class="active" for="miniCV">Mini CV</label>
+            </div>
+            <div class="row right">
+                <a class="waves-effect waves-light btn" id="saveptInfo">Salvar</a>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+</template>

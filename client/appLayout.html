@@ -1,0 +1,107 @@
+<template name="appLayout">
+    <head>
+        <title>Share Training</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion_async.js"
+                charset="utf-8"></script>
+    </head>
+
+    <body>
+    <nav class="white" role="navigation">
+        <div class="nav-wrapper container">
+            <a id="logo-container" href="#" class="brand-logo left"><img src="img/ShareTraining_logoImg.png"
+                                                                         style="width: 40px;height: auto"></a>
+            <ul class="right hide-on-med-and-down">
+                {{#if currentUser}}
+                    <li><a href="#" id="userName">{{user.profile.name}}</a></li>
+                    <li><a href="#" id="userLogout">Logout</a></li>
+                {{else}}
+                    <li><a href="#" id="loginButton">Login</a></li>
+                    <li><a href="#" id="registerButton">Cadastre-se</a></li>
+                {{/if}}
+            </ul>
+
+            <ul id="nav-mobile" class="side-nav">
+                <li><a href="#">Navbar Link</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+
+    {{>yield}}
+
+    <div id="modalLogin" class="modal">
+        <div class="modal-content">
+            {{> login}}
+        </div>
+    </div>
+
+    <div id="modalRegister" class="modal">
+        <div class="modal-content">
+            {{> register}}
+        </div>
+    </div>
+    <footer class="page-footer indicaPsicoBg">
+        <div class="footer-copyright">
+            <div class="container">
+                Share Training - Todos os direitos reservados
+                <a class="grey-text text-lighten-4 right" href="mailto:contato@sharetraining.co" target="_top">contato@sharetraining.co</a>
+            </div>
+        </div>
+    </footer>
+
+    </body>
+</template>
+
+<template name="login">
+    <div class="row">
+        <h5 class="center">Login</h5>
+        <div class="input-field col s12">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="loginEmail" type="text" class="validate">
+            <label for="email">Email</label>
+        </div>
+        <div class="input-field col s12">
+            <i class="material-icons prefix">vpn_key</i>
+            <input id="loginPassword" type="password" class="validate">
+            <label for="password">Senha</label>
+        </div>
+        <div class="row right">
+            <a class="waves-effect waves-light btn" id="login">Login</a>
+        </div>
+    </div>
+</template>
+
+<template name="register">
+    <div class="row">
+        <h5 class="center" style="margin-bottom: 20px">Cadastre-se</h5>
+        <div class="row" style="margin-bottom: 20px">
+            <div class="col s6 center">
+                <a class="waves-effect waves-light btn">Sou Personal Trainer</a>
+            </div>
+            <div class="col s6 center">
+                <a class="waves-effect waves-light btn disabled">Sou Usuário</a>
+            </div>
+        </div>
+        <div class="input-field col s12">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="registerEmail" type="text" class="validate">
+            <label for="Email">Email</label>
+        </div>
+        <div class="input-field col s12">
+            <i class="material-icons prefix">vpn_key</i>
+            <input id="registerPassword" type="password" class="validate">
+            <label for="password">Senha</label>
+        </div>
+        <div class="input-field col s12">
+            <i class="material-icons prefix">vpn_key</i>
+            <input id="registerPasswordAgain" type="password" class="validate">
+            <label for="passwordAgain">Confirme a senha</label>
+        </div>
+        <div class="row right">
+            <a class="waves-effect waves-light btn" id="register">Registrar</a>
+        </div>
+    </div>
+</template>
