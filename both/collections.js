@@ -1,7 +1,6 @@
 import { Mongo } from 'meteor/mongo';
 
-psicoRequest = new Mongo.Collection('psicoRequest');
-psicoDatabase = new Mongo.Collection('psicoDatabase');
+ptEvent = new Mongo.Collection('ptEvent');
 
 contactsSchema = new SimpleSchema({
     email: {
@@ -229,23 +228,28 @@ PTuserSchema = new SimpleSchema({
 PTeventSchema = new SimpleSchema({
     description: {
         type: String,
-        label: "Descrição do treinamento"
+        label: "Descrição do treinamento",
+        optional: true
     },
     personQuantity: {
         type: Number,
-        label: "Quantidade de vagas"
+        label: "Quantidade de vagas",
+        optional: true
     },
     classLevel:{
         type: String,
-        label: "Intensidade da aula"
+        label: "Intensidade da aula",
+        optional: true
     },
     classType:{
         type: String,
-        label: "Tipo da aula"
+        label: "Tipo da aula",
+        optional: true
     },
     price:{
         type: Number,
-        label: "Preço da aula"
+        label: "Preço da aula",
+        optional: true
     },
     dateStart: {
         type: Date,
@@ -257,7 +261,8 @@ PTeventSchema = new SimpleSchema({
     },
     address: {
         type: String,
-        label:"Agenda Address"
+        label:"Agenda Address",
+        optional: true
     },
     addressGeocode:{
         type: addressGeocodeSchema,
@@ -288,3 +293,4 @@ PTeventSchema = new SimpleSchema({
 });
 
 Meteor.users.attachSchema(PTuserSchema);
+ptEvent.attachSchema(PTeventSchema);

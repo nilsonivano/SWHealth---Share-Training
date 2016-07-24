@@ -106,6 +106,50 @@ placeMarkerPsico = function(PsicoArray,map,markerImage){
 };
 //Calcular distância entre 2 lat lngs em km
 
+placeMarkerEvent = function(eventList,map,markerImage){
+    var markersOld = [];
+    var length = eventList.length;
+    var bounds = new google.maps.LatLngBounds();
+    for(i = 0; i<length; i++){
+        var lat = eventList[i].addressGeocode.lat;
+        var lng = eventList[i].addressGeocode.lng;
+        var LatLng = {lat: lat, lng: lng};
+        if(lat && lng){
+            var address = eventList[i].addressGeocode.address;
+            var classLevel = eventList[i].classLevel;
+            var classType = eventList[i].classType;
+            var dateStart = eventList[i].dateStart;
+            var dateEnd = eventList[i].dateEnd;
+            var price = eventList[i].price;
+            var personQuantity = eventList[i].personQuantity;
+            var contentString =
+                '<div>' + '<b>Endereço: </b>' + address + '</div>' +
+                '<div>' + '<b>Tipo de atividade: </b>' + classType + '</div>' +
+                '<div>' + '<b>Nível da atividade: </b>' + classLevel + '</div>' +
+                '<div>' + '<b>Inicio da atividade : </b>' + dateStart + '</div>' +
+                '<div>' + '<b>Fim da atividade: </b>' + dateEnd + '</div>' +
+                '<div>' + '<b>Preço por vaga: </b>R$ ' + price + '</div>' +
+                '<div>' + '<b>Quantidade de vagas: </b>' + personQuantity + '</div>';
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+            var marker = new google.maps.Marker({
+                map: map,
+                position: LatLng,
+                icon: markerImage,
+                infowindow: infowindow
+            });
+            markersOld[i] = marker;
+            google.maps.event.addListener(marker, 'click', function() {
+                this.infowindow.open(map, this);
+            });
+            bounds.extend(marker.getPosition());
+        }
+    }
+    map.fitBounds(bounds);
+    return markersOld
+};
+
 deg2rad = function(deg) {
     return deg * (Math.PI/180)
 };

@@ -11,10 +11,13 @@
     <body>
     <nav class="white" role="navigation">
         <div class="nav-wrapper container">
-            <a id="logo-container" href="#" class="brand-logo left"><img src="img/ShareTraining_logoImg.png"
+            <a id="logo-container" href={{pathFor route='shareTrainingHome'}} class="brand-logo center"><img src="img/ShareTraining_logoImg.png"
                                                                          style="width: 40px;height: auto"></a>
             <ul class="right hide-on-med-and-down">
                 {{#if currentUser}}
+                    <li><a href="{{pathFor route='ptProfile'}}" id="userInfo"><i class="material-icons">account_circle</i></a></li>
+                    <li><a href="{{pathFor route='ptEventAdd'}}" id="userEventRegister"><i class="material-icons">add_location</i></a></li>
+                    <li><a href="{{pathFor route='ptEventList'}}" id="userEventList"><i class="material-icons">description</i></a></li>
                     <li><a href="#" id="userName">{{user.profile.name}}</a></li>
                     <li><a href="#" id="userLogout">Logout</a></li>
                 {{else}}
@@ -24,7 +27,8 @@
             </ul>
 
             <ul id="nav-mobile" class="side-nav">
-                <li><a href="#">Navbar Link</a></li>
+                <li><a href="#" id="loginButton">Login</a></li>
+                <li><a href="#" id="registerButton">Cadastre-se</a></li>
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
@@ -69,7 +73,7 @@
             <label for="password">Senha</label>
         </div>
         <div class="row right">
-            <a class="waves-effect waves-light btn" id="login">Login</a>
+            <a class="waves-effect waves-light btn blue" id="login">Login</a>
         </div>
     </div>
 </template>
@@ -101,7 +105,7 @@
             <label for="passwordAgain">Confirme a senha</label>
         </div>
         <div class="row right">
-            <a class="waves-effect waves-light btn" id="register">Registrar</a>
+            <a class="waves-effect waves-light btn blue" id="register">Registrar</a>
         </div>
     </div>
 </template>

@@ -36,7 +36,7 @@ p {
         top: 0;
     }
     .parallax-container{
-        height: 350px;
+        height: 600px;
     }
 }
 
@@ -68,4 +68,8 @@ footer.page-footer {
 [type="checkbox"]:checked + label::before {
     border-right: 2px solid #0088b9 !important;
     border-bottom: 2px solid #0088b9 !important;
+}
+
+.addressSearch{
+
 }

@@ -10,13 +10,53 @@ Router.route('/ptProfile', {
     template: 'ptProfile'
 });
 
+Router.route('/ptEventAdd', {
+    name: 'ptEventAdd',
+    layoutTemplate: 'appLayout',
+    template: 'ptEventAdd'
+});
+
+Router.route('/ptEventList', {
+    name: 'ptEventList',
+    layoutTemplate: 'appLayout',
+    template: 'ptEventList',
+    subscriptions: function () {
+        if (Meteor.user()) {
+            return Meteor.subscribe('ptEventAll')
+        }
+    },
+    action: function () {
+        if (this.ready()) {
+            this.render();
+        } else {
+            this.render('loading');
+        }
+    }
+});
+
+Router.route('/searchResult', {
+    name: 'searchResult',
+    layoutTemplate: 'appLayout',
+    template: 'searchResult',
+    subscriptions: function () {
+        return Meteor.subscribe('ptEventAll')
+    },
+    action: function () {
+        if (this.ready()) {
+            this.render();
+        } else {
+            this.render('loading');
+        }
+    }
+});
+
 Router.route('/userLeads', {
     name: 'adminUserLeads',
     template: 'adminUserLeads',
-    subscriptions: function() {
-        if(Meteor.user()){
+    subscriptions: function () {
+        if (Meteor.user()) {
             return (Meteor.subscribe('userLeadsAll'),
-            Meteor.subscribe('psicoDatabaseAll'));
+                Meteor.subscribe('psicoDatabaseAll'));
         }
     },
     action: function () {
@@ -33,23 +73,23 @@ Router.route('/psicoPanel', {
     template: 'adminPsicoPanel'
 });
 
-if(Meteor.isClient){
+if (Meteor.isClient) {
     Router.plugin('seo',
         {
             defaults: {
-                title: 'IndicaPsico - Encontre agora o melhor psicólogo para você',
-                description: 'Encontre agora o melhor psicólogo para você.',
+                title: 'ShareTraining - Encontre agora o melhor treino para você',
+                description: 'Encontre agora o melhor treino para você.',
                 //image: 'http://lemeat.com/images/lemeat_launcher_icon.png',
                 meta: {
-                    keywords: ['indica psicólogo', 'indicapsico', 'psicologia', 'psicólogo']
+                    keywords: ['treino', 'personal']
                 },
                 twitter: {
-                    card: 'IndicaPsico'
+                    card: 'ShareTraining'
                 },
                 og: {
-                    site_name: 'IndicaPsico - Encontre agora o melhor psicólogo para você',
-                    title: 'IndicaPsico - Encontre agora o melhor psicólogo para você',
-                    description: 'Encontre agora o melhor psicólogo para você.',
+                    site_name: 'ShareTraining - Encontre agora o melhor treino para você',
+                    title: 'ShareTraining - Encontre agora o melhor treino para você',
+                    description: 'Encontre agora o melhor treino para você.',
                     //image: 'http://lemeat.com/images/lemeat_launcher_icon.png',
                     type: 'website'
                 }

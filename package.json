@@ -1,5 +1,5 @@
 {
-  "name": "indiquepsico",
+  "name": "shareTraining",
   "private": true,
   "scripts": {
     "start": "meteor run"

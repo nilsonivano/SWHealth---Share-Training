@@ -8,29 +8,25 @@ Meteor.methods({
             password: password
         });
     },
-    'insertRequestPsico': function(name, email, phone, address, addressGeocode, valores, atendimentoType, especializacaoType, abordagemType,
-    haveConvenio, nomeConvenio, haveContatar, contatoList, periodoList){
-        psicoRequest.insert({
-            name: name,
-            email: email,
-            phone: phone,
+    'insertEvent': function(description, personQuantity, classLevel, classType, price, dateStart, dateEnd, address,
+    addressGeocode, addressReference, addedBy){
+        ptEvent.insert({
+            description: description,
+            personQuantity: personQuantity,
+            classLevel: classLevel,
+            classType: classType,
+            price: price,
+            dateStart: dateStart,
+            dateEnd: dateEnd,
             address: address,
             addressGeocode:{
                 lat: addressGeocode.lat,
                 lng: addressGeocode.lng,
                 city: addressGeocode.city,
-                zipcode: addressGeocode.zipcode,
                 address: addressGeocode.address
             },
-            valoresRange: valores,
-            atendimentoType: atendimentoType,
-            especializacaoType: especializacaoType,
-            abordagemType: abordagemType,
-            haveConvenio: haveConvenio,
-            convenioName: nomeConvenio,
-            haveContatar: haveContatar,
-            contatoHorario: periodoList,
-            contatoType: contatoList
+            addressReference: addressReference,
+            addedBy: addedBy
         });
     },
     'getGeocodeFromAddress': function(address){

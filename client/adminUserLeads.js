@@ -3,7 +3,7 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
 Template.adminUserLeads.onCreated(function(){
-    GoogleMaps.load({ v: '3', key: 'AIzaSyBqVt5eVYugh9bvX4XTseye8RuSrdPHdmE', libraries: 'geometry,places' });
+    GoogleMaps.load({ v: '3', key: 'AIzaSyDVajHobXajARKLYLARt0pualrB5kvqG_8', libraries: 'geometry,places' });
 })
 
 Template.adminUserLeads.onRendered(function(){

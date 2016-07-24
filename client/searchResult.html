@@ -1,0 +1,34 @@
+<template name="searchResult">
+    <div class="row" style="margin: 0px">
+        <div class="col s6" style="margin: 0px; padding: 0px">
+            <div class="mapResults">
+                {{> googleMap name="mapEventResult" options=mapEventResult}}
+            </div>
+        </div>
+        <div class="col s6" style="height: 500px; overflow: scroll">
+            {{#each eventList}}
+                {{> cardResult}}
+            {{/each}}
+        </div>
+    </div>
+</template>
+
+<template name="cardResult">
+    <div class="col s12 m6">
+        <div class="card" style="height: 300px; overflow: scroll">
+            <div class="card-content">
+                <p>Distância: {{distance}} km</p>
+                <p>Local: {{address}}</p>
+                <p>Data Inicio: {{dateStart}}</p>
+                <p>Data Fim: {{dateEnd}}</p>
+                <p>Tipo da Aula : {{classType}}</p>
+                <p>Nível da Aula : {{classLevel}}</p>
+                <p>Preço por vaga : R$ {{price}}</p>
+                <p>Quantidade de vagas : {{personQuantity}} pessoas</p>
+            </div>
+            <div class="card-action">
+                <a href="#" id="eventDelete"><i class="material-icons">favorite</i></a>
+            </div>
+        </div>
+    </div>
+</template>

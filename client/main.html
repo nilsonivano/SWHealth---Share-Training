@@ -2,14 +2,17 @@
     <div id="index-banner" class="parallax-container">
         <div class="section no-pad-bot">
             <div class="container">
-                <div class="center">
+                <div class="col s12 center">
                     <img src="img/ShareTraining_logoImg.png" style="width: 200px;height: auto">
                 </div>
-                <h1 class="header center" style="color: white">Share Training</h1>
-                <div class="row center">
-                    <h5 class="header col s12 light">Encontre agora a melhor aula para você!</h5>
-                    <!--<a href="#indicaF" class="waves-effect waves-light btn-large" id="buttonIndicaPsico"-->
-                    <!--style="background-color: #0088b9">Buscar Profissionais</a>-->
+                <div class="col s12 center">
+                    <h1 class="header center" style="color: white">Share Training</h1>
+                </div>
+                <div class="col s12 center">
+                    <h5 class="header col s12 light" style="color: white">Encontre agora a melhor aula para você!</h5>
+                </div>
+                <div class="col s12">
+                    {{> searchBar}}
                 </div>
             </div>
         </div>
@@ -61,157 +64,14 @@
     </div>
 </template>
 
-<template name="indicaForm">
-    <div class="row scrollspy" id="indicaF">
-        <form class="col s12" id="indicaForm">
-            <div class="row">
-                <div class="input-field col s12 l6 tooltipped" data-position="top" data-delay="50"
-                     data-tooltip="Suas informações são sigilosas e tratadas com muito cuidado. Seu nome só é informado aos profissionais selecionados por você.">
-                    <i class="material-icons prefix">account_circle</i>
-                    <input id="name" type="text" class="validate">
-                    <label for="name">Nome</label>
-                </div>
-                <div class="input-field col s12 l6 tooltipped" data-position="top" data-delay="50"
-                     data-tooltip="Não se preocupe. Você não receberá uma enxurrada de emails indesejados. Nenhum contato direto é feito pelos profissionais até a sua autorização.">
-                    <i class="material-icons prefix">email</i>
-                    <input id="email" type="email" class="validate">
-                    <label for="email">E-mail</label>
-                </div>
-                <div class="input-field col s12 l6 tooltipped" data-position="top" data-delay="50"
-                     data-tooltip="Os profissionais não recebem seu telefone automaticamente. Como no caso do email, só dividimos essa informação após a sua autorização.">
-                    <i class="material-icons prefix">phone</i>
-                    <input id="phone" type="text" class="validate">
-                    <label for="phone">Telefone de Contato</label>
-                </div>
-                <div class="input-field col s12 l6 tooltipped" data-position="top" data-delay="50"
-                     data-tooltip="Qualquer uma das informações é válida. Fique tranquilo, você poderá escolher entre os profissionais mais próximos a você.">
-                    <i class="material-icons prefix">store</i>
-                    <input id="address" type="text" class="validate">
-                    <label for="address">Local do Atendimento (Bairro ou CEP)</label>
-                </div>
-                <div class="input-field col s12 l6">
-                    <select id="valores">
-                        <option value="" disabled selected>Valores</option>
-                        {{#each valores}}
-                            <option value="{{this}}">{{this}}</option>
-                        {{/each}}
-                    </select>
-                    <label>Valores</label>
-                </div>
-                <div class="input-field col s12 l6">
-                    <select id="atendimentoType">
-                        <option value="" disabled selected>Escolha o tipo de atendimento</option>
-                        {{#each atendimentoTypes}}
-                            <option value="{{this}}">{{this}}</option>
-                        {{/each}}
-                    </select>
-                    <label>Tipo de Atendimento</label>
-                </div>
-                <div class="input-field col s12 l6 tooltipped" data-position="top" data-delay="50"
-                     data-tooltip="Aqui estão algumas categorias caso você busque um profissional com experiência ou especialização em determinada área. Se você não sabe, não se preocupe, essa informação é opcional.">
-                    <select id="especializacaoType">
-                        <option value="" disabled selected>Especialização (opcional)</option>
-                        {{#each especializacaoTypes}}
-                            <option value="{{this}}">{{this}}</option>
-                        {{/each}}
-                    </select>
-                    <label>Tipo de Especialização</label>
-                </div>
-                <div class="input-field col s12 l6 tooltipped informationIcon" data-position="top" data-delay="50"
-                     data-tooltip="Em alguns casos pacientes já buscam determinada abordagem clínica do profissional.Essa informação também é opcional.">
-                    <select id="abordagemType">
-                        <option value="" disabled selected>Abordagem Clínica (opcional)</option>
-                        {{#each abordagemTypes}}
-                            <option value="{{this}}">{{this}}</option>
-                        {{/each}}
-                    </select>
-                    <label>Tipo de Abordagem Clínica</label>
-                </div>
-                <div class="input-field col s12 l6">
-                    <div class="row">
-                        <div class="col s2">
-                            Convênio:
-                        </div>
-                        <div class="col s5">
-                            <input name="convenioGroup" type="radio" id="convenioNao" value="convenioNao"/>
-                            <label for="convenioNao">Não</label>
-                        </div>
-                        <div class="col s5">
-                            <input name="convenioGroup" type="radio" id="convenioSim" value="convenioSim"/>
-                            <label for="convenioSim">Sim</label>
-                        </div>
-                        <div class="col s12" style="margin-top: 5px">
-                            <div class="input-field">
-                                <input disabled id="nomeConvenio" type="text" class="validate">
-                                <label for="nomeConvenio">Nome do Convênio</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="input-field col s12 l6">
-                    <div class="row">
-                        <div class="col s2">
-                            Contato:
-                        </div>
-                        <div class="col s5 tooltipped" data-position="top" data-delay="50"
-                             data-tooltip="Aqui você decide como será feito o contato. Na opção “Prefiro entrar em contato” você recebe as informações dos profissionais para ligar quando achar melhor e na ordem que preferir. Já na opção “Aceito receber contato”, você autoriza o envio das suas informações e eferências de contato para os profissionais encontrados que entrarão em contato na sequência.">
-                            <input checked name="contato" type="radio" id="contatoNao" value="contatoNao"/>
-                            <label for="contatoNao">Prefiro entrar em contato</label>
-                        </div>
-                        <div class="col s5 tooltipped" data-position="top" data-delay="50"
-                             data-tooltip="Aqui você decide como será feito o contato. Na opção “Prefiro entrar em contato” você recebe as informações dos profissionais para ligar quando achar melhor e na ordem que preferir. Já na opção “Aceito receber contato”, você autoriza o envio das suas informações e eferências de contato para os profissionais encontrados que entrarão em contato na sequência.">
-                            <input name="contato" type="radio" id="contatoSim" value="contatoSim"/>
-                            <label for="contatoSim">Aceito receber contato</label>
-                        </div>
-                    </div>
-                    <div class="row" id="contatoForm">
-                        <div class="col s6">
-                            <div>Entrar em contato por:</div>
-                            <form>
-                                <p>
-                                    <input type="checkbox" id="contatoEmail" value="Email" name="tipoContato"/>
-                                    <label for="contatoEmail">E-mail</label>
-                                </p>
-                                <p>
-                                    <input type="checkbox" id="contatoWhatsapp" value="Whatsapp" name="tipoContato"/>
-                                    <label for="contatoWhatsapp">Whatsapp</label>
-                                </p>
-                                <p>
-                                    <input type="checkbox" id="contatoTelefone" value="Telefone" name="tipoContato"/>
-                                    <label for="contatoTelefone">Telefone</label>
-                                </p>
-                            </form>
-                        </div>
-                        <div class="col s6">
-                            <div>Horários para contato:</div>
-                            <form>
-                                <p>
-                                    <input type="checkbox" id="contatoManha" value="Manhã" name="periodoContato"/>
-                                    <label for="contatoManha">Manhã</label>
-                                </p>
-                                <p>
-                                    <input type="checkbox" id="contatoAlmoco" value="Almoço" name="periodoContato"/>
-                                    <label for="contatoAlmoco">Almoço</label>
-                                </p>
-                                <p>
-                                    <input type="checkbox" id="contatoTarde" value="Tarde" name="periodoContato"/>
-                                    <label for="contatoTarde">Tarde</label>
-                                </p>
-                                <p>
-                                    <input type="checkbox" id="contatoNoite" value="Noite" name="periodoContato"/>
-                                    <label for="contatoNoite">Noite</label>
-                                </p>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 l12 right-align">
-                    <button onclick="goog_report_conversion" class="btn waves-effect waves-light indicaPsicoBg"
-                            name="action" id="requisitaPsico">Enviar
-                    </button>
-                </div>
+<template name="searchBar">
+    <div style="background-color: white; opacity: 0.8">
+        <div class="row valign-wrapper" style="padding: 20px">
+            <div class="col s6 m10 center valign" style="color: black">
+                <input id="addressSearch" placeholder="Digite o Endereço / Local onde você deseja realizar sua aula" type="text" class="addressSearch">
             </div>
-        </form>
+            <div class="col s6 m2 center valign"><a class="waves-effect waves-light btn-large blue" id="searchButton">Buscar</a></div>
+        </div>
     </div>
 </template>
 

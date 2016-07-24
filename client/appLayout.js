@@ -30,7 +30,8 @@ Template.appLayout.onCreated(function () {
 });
 
 Template.appLayout.onRendered(function () {
-    //add your statement here
+    $(".button-collapse").sideNav();
+
 });
 
 Template.appLayout.onDestroyed(function () {

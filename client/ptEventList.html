@@ -1,0 +1,31 @@
+<template name="ptEventList">
+    {{#if currentUser}}
+        <div class="container">
+            <h4>Lista de aulas publicadas</h4>
+            <div class="row">
+                {{#each eventList}}
+                    {{> aulaCard}}
+                {{/each}}
+            </div>
+        </div>
+    {{/if}}
+</template>
+
+<template name="aulaCard">
+    <div class="col s12 m6">
+        <div class="card">
+            <div class="card-content">
+                <p>Local: {{address}}</p>
+                <p>Data Inicio: {{dateStart}}</p>
+                <p>Data Fim: {{dateEnd}}</p>
+                <p>Tipo da Aula : {{classType}}</p>
+                <p>Nível da Aula : {{classLevel}}</p>
+                <p>Preço por vaga : R$ {{price}}</p>
+                <p>Quantidade de vagas : {{personQuantity}} pessoas</p>
+            </div>
+            <div class="card-action">
+                <a href="#" id="eventDelete"><i class="material-icons">delete</i></a>
+            </div>
+        </div>
+    </div>
+</template>
