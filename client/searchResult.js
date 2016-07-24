@@ -17,10 +17,14 @@ Template.searchResult.helpers({
         var latUser = searchResult[0].latitude;
         var lngUser = searchResult[0].longitude;
         var eventListLength = eventList.length;
-        console.log(eventList);
         for(i = 0; i < eventListLength; i++){
             var distance = getDistanceFromLatLonInKm(latUser, lngUser, eventList[i].addressGeocode.lat,eventList[i].addressGeocode.lng);
+            var pt = Meteor.users.find({_id: eventList[i].addedBy}).fetch();
+            var ptName = pt[0].profile.name;
+            var ptCref = pt[0].profile.cref;
             eventList[i].distance = distance;
+            eventList[i].ptName = ptName;
+            eventList[i].ptCref = ptCref;
             listFinal.insert(eventList[i]);
         }
         console.log(listFinal.find({},{sort: {distance: 1}}).fetch());

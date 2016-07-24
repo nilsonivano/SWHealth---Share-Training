@@ -39,7 +39,7 @@ Router.route('/searchResult', {
     layoutTemplate: 'appLayout',
     template: 'searchResult',
     subscriptions: function () {
-        return Meteor.subscribe('ptEventAll')
+        return (Meteor.subscribe('ptEventAll'), Meteor.subscribe('ptAll'))
     },
     action: function () {
         if (this.ready()) {
@@ -68,9 +68,20 @@ Router.route('/userLeads', {
     }
 });
 
-Router.route('/psicoPanel', {
-    name: 'adminPsicoPanel',
-    template: 'adminPsicoPanel'
+Router.route('/ptProfileOpen/:ptId', {
+    name: 'ptProfileOpen',
+    layoutTemplate: 'appLayout',
+    subscriptions: function () {
+        var ptId = Router.current().params.ptId;
+        return (Meteor.subscribe('ptProfile', ptId));
+    },
+    action: function () {
+        if (this.ready()) {
+            this.render();
+        } else {
+            this.render('loading');
+        }
+    }
 });
 
 if (Meteor.isClient) {
