@@ -6,7 +6,7 @@
   },
   "dependencies": {
     "jquery": "^3.0.0",
-    "materialize-css": "^0.97.6",
+    "materialize-css": "^0.97.7",
     "mdi": "^1.6.50",
     "meteor-node-stubs": "~0.2.0",
     "node-geocoder": "^3.13.0",

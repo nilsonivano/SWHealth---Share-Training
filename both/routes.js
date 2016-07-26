@@ -101,9 +101,10 @@ if (Meteor.isClient) {
                     site_name: 'ShareTraining - Encontre agora o melhor treino para você',
                     title: 'ShareTraining - Encontre agora o melhor treino para você',
                     description: 'Encontre agora o melhor treino para você.',
-                    //image: 'http://lemeat.com/images/lemeat_launcher_icon.png',
+                    image: 'http://sharetraining.com/img/ShareTraining_logoImg.png',
                     type: 'website'
                 }
             }
-        });
+        }
+    );
 }
